@@ -4,9 +4,17 @@
 
 ## Setting up the environment
 ### - Weights & Biases API key
-* Get it from wandb --> image
-* write it to environment.env file
-* place environment.env file in root folder
+Follow these steps to get an wandb API key
+* Open an account if necessary. You can easily create one using your github credentials
+* Got to the "User settings" (top right corner in the Web UI)
+* Scroll down to the "API keys" section. Create or use an existing API key. 
+
+Next, create the ```environment.env``` file with the following contents:
+
+```WANDB_API_KEY=<YOUR API KEY>```
+
+Keep track of where you place the ```environment.env```. We will use this environment file to run our MLflow pipeline from 
+a docker container. 
 ### - Docker image - Pipe
 ```docker build --build-arg "working_directory=$PWD" -t mlops/pipe .```
 ### - Docker image - Run
@@ -26,7 +34,7 @@
 
 ## Run the MLflow pipeline
 ### Run the end-to-end pipeline
-```docker run --env-file ../environment.env --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):$(pwd) mlops/pipe```
+```docker run --env-file ./environment.env --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):$(pwd) mlops/pipe```
 
 ### Run selected steps in the pipeline
-```docker run --env-file ../environment.env --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):$(pwd) -e MLFLOW_RUN_PARAMS=hydra_options="main.execute_steps='download, preprocess, check_data'" mlops/pipe```
+```docker run --env-file ./environment.env --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):$(pwd) -e MLFLOW_RUN_PARAMS=hydra_options="main.execute_steps='download, preprocess, check_data'" mlops/pipe```
