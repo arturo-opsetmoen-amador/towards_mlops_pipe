@@ -1,6 +1,6 @@
 # Towards an MLOps ready ML pipeline
 
-![MLOps pipeline graph view](https://live.staticflickr.com/65535/51784630642_39857a6b9e_o.png)
+![MLOps pipeline graph view](https://live.staticflickr.com/65535/51786424000_445a7e975a_o.jpg)
 
 ## Setting up the environment
 ### - Weights & Biases API key
