@@ -3,7 +3,7 @@
 ![MLOps pipeline graph view](https://live.staticflickr.com/65535/51784630642_39857a6b9e_o.png)
 
 ## Setting up the environment
-### - Weights & Bias API key
+### - Weights & Biases API key
 * Get it from wandb --> image
 * write it to environment.env file
 * place environment.env file in root folder
