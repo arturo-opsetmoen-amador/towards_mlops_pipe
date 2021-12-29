@@ -1,0 +1,13 @@
+wandb
+mlflow
+hydra-core
+hydra-joblib-launcher
+scikit-learn
+pandas
+matplotlib
+plotly
+pillow
+omegaconf
+pyarrow
+pytest
+scipy

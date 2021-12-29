@@ -1,0 +1,17 @@
+name: mlops_pipe_ex1
+docker_env:
+  image:
+    mlops/run
+  volumes:
+    ["/var/run/docker.sock:/var/run/docker.sock", "$(echo $pwd)/outputs:/mlflow/projects/code/outputs"]
+  environment:
+    ["WANDB_API_KEY"]
+entry_points:
+  main:
+    parameters:
+      hydra_options:
+        description: Hydra parameters to override
+        type: str
+        default: ''
+    command: >-
+      python main.py $(echo {hydra_options})

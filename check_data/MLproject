@@ -1,0 +1,26 @@
+name: data_test
+docker_env:
+  image:
+    mlops/run
+  volumes:
+    ["/var/run/docker.sock:/var/run/docker.sock", "$(echo $pwd)/outputs:/mlflow/projects/code/outputs"]
+  environment:
+    ["WANDB_API_KEY", "WANDB_PROJECT", "WANDB_RUN_GROUP"]
+entry_points:
+  main:
+    parameters:
+      reference_artifact:
+        description: Fully-qualitied name for the artifact to be used as reference dataset
+        type: str
+      sample_artifact:
+        description: Fully-qualitied name for the artifact to be used as new data sample
+        type: str
+      ks_alpha:
+        description: Threshold for the (pre-trial) p-value for the KS test
+        type: float
+    # NOTE: the -s flag is necessary, otherwise pytest will capture all the output and it
+    # will not be uploaded to W&B. Hence, the log in W&B will be empty.
+    command: >-
+      pytest -s -vv test_data.py --reference_artifact {reference_artifact} \
+                      --sample_artifact {sample_artifact} \
+                      --ks_alpha {ks_alpha}

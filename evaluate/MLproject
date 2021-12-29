@@ -1,0 +1,20 @@
+name: evaluate_results
+docker_env:
+  image:
+    mlops/run
+  volumes:
+    ["/var/run/docker.sock:/var/run/docker.sock", "$(echo $pwd)/outputs:/mlflow/projects/code/outputs"]
+  environment:
+    ["WANDB_API_KEY", "WANDB_PROJECT", "WANDB_RUN_GROUP"]
+entry_points:
+  main:
+    parameters:
+      model_export:
+        description: Fully-qualified artifact name for the exported model to evaluate
+        type: str
+      test_data:
+        description: Fully-qualified artifact name for the test data
+        type: str
+    command: >-
+      python run.py --model_export {model_export} \
+                    --test_data {test_data}
