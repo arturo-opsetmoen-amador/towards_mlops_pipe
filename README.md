@@ -4,7 +4,7 @@
 
 ## Setting up the environment
 ### - Weights & Biases API key
-Follow these steps to get an wandb API key
+Follow these steps to get a wandb API key
 * Open an account if necessary. You can easily create one using your github credentials
 * Got to the "User settings" (top right corner in the Web UI)
 * Scroll down to the "API keys" section. Create or use an existing API key. 
