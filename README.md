@@ -20,9 +20,9 @@ a docker container.
 
 ![Docker-in-Docker](https://live.staticflickr.com/65535/51787916879_c90c62e497_o.jpg)
 
-#### - Docker image - Pipe
+#### - Docker image - Pipe (mlops/pipe)
 ```docker build --build-arg "working_directory=$PWD" -t mlops/pipe .```
-#### - Docker image - Run
+#### - Docker image - Run (mlops/run)
 ```docker build -t mlops/run ./base_docker```
 
 
