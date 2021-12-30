@@ -15,9 +15,14 @@ Next, create the ```environment.env``` file with the following contents:
 
 Keep track of where you place the ```environment.env```. We will use this environment file to run our MLflow pipeline from 
 a docker container. 
-### - Docker image - Pipe
+
+### The docker siblings set-up (dind/docker-in-docker alternative)
+
+![Docker-in-Docker](https://live.staticflickr.com/65535/51787916879_c90c62e497_o.jpg)
+
+#### - Docker image - Pipe
 ```docker build --build-arg "working_directory=$PWD" -t mlops/pipe .```
-### - Docker image - Run
+#### - Docker image - Run
 ```docker build -t mlops/run ./base_docker```
 
 
